@@ -21,7 +21,7 @@ namespace iikoBOS_prealpha_API
             {
                 connection.Open();
 
-                SqliteCommand command = new SqliteCommand("CREATE TABLE IF NOT EXISTS Servers(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, URL TEXT UNIQUE NULL, ServerVersion TEXT UNIQUE NULL, ServerEdition TEXT UNIQUE NULL, ServerName TEXT UNIQUE NULL, Name TEXT UNIQUE  NULL)", connection);
+                SqliteCommand command = new SqliteCommand("CREATE TABLE IF NOT EXISTS Servers(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, URL TEXT UNIQUE NULL, ServerVersion TEXT  NULL, ServerEdition TEXT  NULL, ServerName TEXT  NULL, Name TEXT   NULL)", connection);
      
                 command.ExecuteNonQuery();
                 command = new SqliteCommand("SELECT COUNT(*) FROM sqlite_master WHERE TYPE='TABLE' AND NAME='Servers'", connection);
