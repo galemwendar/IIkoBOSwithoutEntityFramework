@@ -125,15 +125,6 @@ namespace iikoBOS_OlejaEdition_v0._1
 
         private void lv_Servers_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            mUrl = lv_Servers.FocusedItem.SubItems[1].Text;
-
-            backClient.BackClientConfigEdit(mUrl, mLogin);
-            backClient.OpenBackOffice(mUrl, mPath);
-            auth.AuthorizationMetod(mPasswd);
-        }
-
-        private void lv_Servers_SelectedIndexChanged(object sender, EventArgs e)
-        {
             if (lv_Servers.SelectedIndices.Count <= 0)
             {
                 return;
@@ -144,6 +135,23 @@ namespace iikoBOS_OlejaEdition_v0._1
                 mUrl = lv_Servers.Items[intselectedindex].SubItems[1].Text;
 
             }
+            backClient.BackClientConfigEdit(mUrl, mLogin);
+            backClient.OpenBackOffice(mUrl, mPath);
+            auth.AuthorizationMetod(mPasswd);
+        }
+
+        private void lv_Servers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (lv_Servers.SelectedIndices.Count <= 0)
+            //{
+            //    return;
+            //}
+            //int intselectedindex = lv_Servers.SelectedIndices[0];
+            //if (intselectedindex >= 0)
+            //{
+            //    mUrl = lv_Servers.Items[intselectedindex].SubItems[1].Text;
+
+            //}
 
         }
 
