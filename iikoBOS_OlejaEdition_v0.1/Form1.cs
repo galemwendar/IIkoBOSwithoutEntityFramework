@@ -190,12 +190,14 @@ namespace iikoBOS_OlejaEdition_v0._1
 
         private void toolStripMenuItemChangeName_Click(object sender, EventArgs e)
         {
-          
+            ChangeName();
+            RefreshListView(db.GetServers());
 
         }
 
         public void ChangeName()
         {
+            var id = string.Empty;
             if (lv_Servers.SelectedIndices.Count <= 0)
             {
                 return;
@@ -203,15 +205,18 @@ namespace iikoBOS_OlejaEdition_v0._1
             int intselectedindex = lv_Servers.SelectedIndices[0];
             if (intselectedindex >= 0)
             {
-                var id = lv_Servers.Items[intselectedindex].Text;
-                
-                Name nameDialog = new Name();
-                nameDialog.Owner = this;
-                nameDialog.ShowDialog();
-                db.ChangeName(id, uName);
+                 id = lv_Servers.Items[intselectedindex].Text;
+               
             }
 
-            
+            Name nameDialog = new Name
+            {
+                Owner = this
+            };
+            nameDialog.ShowDialog();
+            db.ChangeName(id, uName);
+
+
         }
     }
 }
