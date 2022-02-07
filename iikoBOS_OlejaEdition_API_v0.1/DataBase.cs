@@ -124,5 +124,40 @@ namespace iikoBOS_prealpha_API
 
             
         }
+
+        public void ChangeName(string id, string name)
+        {
+            using (SqliteConnection connection = new SqliteConnection(ConnectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand($"UPDATE Servers SET Name='{name}' WHERE id={id}", connection);
+                command.ExecuteNonQuery();
+               
+            }
+
+        }
+
+        public void DeleteServerProperties(string id)
+        {
+            using (SqliteConnection connection = new SqliteConnection(ConnectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand($"DELETE FROM Servers WHERE id={id}", connection);
+                command.ExecuteNonQuery();
+
+            }
+        }
+
+        public void DeleteAllServerProperties()
+        {
+            using (SqliteConnection connection = new SqliteConnection(ConnectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand($"DELETE FROM Servers", connection);
+                command.ExecuteNonQuery();
+
+            }
+
+        }
     }
 }

@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>iikoBOS_OlejaEdition_v0._1</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>олежа-ico.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

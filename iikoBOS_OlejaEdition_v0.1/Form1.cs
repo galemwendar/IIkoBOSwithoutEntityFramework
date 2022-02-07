@@ -18,7 +18,7 @@ namespace iikoBOS_OlejaEdition_v0._1
         private string mUrl = string.Empty;
         private string mPath = string.Empty;
         private string filterstring = string.Empty;
-        public string serverCustomName;
+        public string uName = string.Empty;
         Authorization auth = new Authorization();
         BackClient backClient = new BackClient();
         DataBase db = new DataBase();
@@ -65,7 +65,16 @@ namespace iikoBOS_OlejaEdition_v0._1
 
         private void btn_Open_Click(object sender, EventArgs e)
         {
-            mUrl = lv_Servers.SelectedItems[0].Text;
+            if (lv_Servers.SelectedIndices.Count <= 0)
+            {
+                return;
+            }
+            int intselectedindex = lv_Servers.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                mUrl = lv_Servers.Items[intselectedindex].SubItems[1].Text;
+
+            }
             backClient.BackClientConfigEdit(mUrl, mLogin);
             backClient.OpenBackOffice(mUrl, mPath);
             auth.AuthorizationMetod(mPasswd);
@@ -116,7 +125,7 @@ namespace iikoBOS_OlejaEdition_v0._1
 
         private void lv_Servers_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            mUrl = lv_Servers.FocusedItem.Text;
+            mUrl = lv_Servers.FocusedItem.SubItems[1].Text;
 
             backClient.BackClientConfigEdit(mUrl, mLogin);
             backClient.OpenBackOffice(mUrl, mPath);
@@ -125,7 +134,84 @@ namespace iikoBOS_OlejaEdition_v0._1
 
         private void lv_Servers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lv_Servers.SelectedIndices.Count <= 0)
+            {
+                return;
+            }
+            int intselectedindex = lv_Servers.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                mUrl = lv_Servers.Items[intselectedindex].SubItems[1].Text;
 
+            }
+
+        }
+
+        private void toolStripMenuItemOpen_Click(object sender, EventArgs e)
+        {
+            if (lv_Servers.SelectedIndices.Count <= 0)
+            {
+                return;
+            }
+            int intselectedindex = lv_Servers.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                mUrl = lv_Servers.Items[intselectedindex].SubItems[1].Text;
+
+            }
+            backClient.BackClientConfigEdit(mUrl, mLogin);
+            backClient.OpenBackOffice(mUrl, mPath);
+            auth.AuthorizationMetod(mPasswd);
+
+        }
+
+        private void toolStripMenuRemove_Click(object sender, EventArgs e)
+        {
+            
+            if (lv_Servers.SelectedIndices.Count <= 0)
+            {
+                return;
+            }
+            int intselectedindex = lv_Servers.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+               var id = lv_Servers.Items[intselectedindex].Text;
+                db.DeleteServerProperties(id);
+            }
+            RefreshListView(db.GetServers());
+            
+        }
+
+        private void toolStripMenuItemRemoveAll_Click(object sender, EventArgs e)
+        {
+            db.DeleteAllServerProperties();
+            RefreshListView(db.GetServers());
+        }
+
+        private void toolStripMenuItemChangeName_Click(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        public void ChangeName()
+        {
+            if (lv_Servers.SelectedIndices.Count <= 0)
+            {
+                return;
+            }
+            int intselectedindex = lv_Servers.SelectedIndices[0];
+            if (intselectedindex >= 0)
+            {
+                var id = lv_Servers.Items[intselectedindex].Text;
+                
+                Name nameDialog = new Name();
+                nameDialog.Owner = this;
+                nameDialog.ShowDialog();
+                db.ChangeName(id, uName);
+            }
+
+            
         }
     }
 }

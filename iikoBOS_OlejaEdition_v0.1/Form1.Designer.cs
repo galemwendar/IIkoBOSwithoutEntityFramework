@@ -30,6 +30,7 @@ namespace iikoBOS_OlejaEdition_v0._1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -60,10 +61,10 @@ namespace iikoBOS_OlejaEdition_v0._1
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStripList = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemRemoveAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemChangeName = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog_Path = new System.Windows.Forms.FolderBrowserDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -365,36 +366,40 @@ namespace iikoBOS_OlejaEdition_v0._1
             // 
             this.contextMenuStripList.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4});
+            this.toolStripMenuItemOpen,
+            this.toolStripMenuRemove,
+            this.toolStripMenuItemRemoveAll,
+            this.toolStripMenuItemChangeName});
             this.contextMenuStripList.Name = "contextMenuStripList";
-            this.contextMenuStripList.Size = new System.Drawing.Size(209, 100);
+            this.contextMenuStripList.Size = new System.Drawing.Size(211, 128);
             // 
-            // toolStripMenuItem1
+            // toolStripMenuItemOpen
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(208, 24);
-            this.toolStripMenuItem1.Text = "Открыть";
+            this.toolStripMenuItemOpen.Name = "toolStripMenuItemOpen";
+            this.toolStripMenuItemOpen.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItemOpen.Text = "Открыть";
+            this.toolStripMenuItemOpen.Click += new System.EventHandler(this.toolStripMenuItemOpen_Click);
             // 
-            // toolStripMenuItem2
+            // toolStripMenuRemove
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(208, 24);
-            this.toolStripMenuItem2.Text = "Удалить";
+            this.toolStripMenuRemove.Name = "toolStripMenuRemove";
+            this.toolStripMenuRemove.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuRemove.Text = "Удалить";
+            this.toolStripMenuRemove.Click += new System.EventHandler(this.toolStripMenuRemove_Click);
             // 
-            // toolStripMenuItem3
+            // toolStripMenuItemRemoveAll
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(208, 24);
-            this.toolStripMenuItem3.Text = "Удалить все";
+            this.toolStripMenuItemRemoveAll.Name = "toolStripMenuItemRemoveAll";
+            this.toolStripMenuItemRemoveAll.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItemRemoveAll.Text = "Удалить все";
+            this.toolStripMenuItemRemoveAll.Click += new System.EventHandler(this.toolStripMenuItemRemoveAll_Click);
             // 
-            // toolStripMenuItem4
+            // toolStripMenuItemChangeName
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(208, 24);
-            this.toolStripMenuItem4.Text = "Изменить имя (F2)";
+            this.toolStripMenuItemChangeName.Name = "toolStripMenuItemChangeName";
+            this.toolStripMenuItemChangeName.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItemChangeName.Text = "Изменить имя (F2)";
+            this.toolStripMenuItemChangeName.Click += new System.EventHandler(this.toolStripMenuItemChangeName_Click);
             // 
             // Form1
             // 
@@ -402,6 +407,7 @@ namespace iikoBOS_OlejaEdition_v0._1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 596);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -453,10 +459,10 @@ namespace iikoBOS_OlejaEdition_v0._1
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog_Path;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripList;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOpen;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuRemove;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemoveAll;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemChangeName;
         private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
